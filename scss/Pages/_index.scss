@@ -106,7 +106,7 @@ header {
                     left: -100%;
                     height: 100vh;
                     width: 100%;
-                    max-width: 330px;
+                    max-width: 350px;
                     display: block;
                     background-color: white;
                     padding: 10px 0;
@@ -519,22 +519,17 @@ header {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 35px 40px;
-
             @media screen and (max-width:992px) {
                 grid-template-columns: repeat(2, 1fr);
             }
-
             @media screen and (max-width:567px) {
                 grid-template-columns: 1fr;
             }
-
             .card {
-
                 border-radius: 10px;
                 overflow: hidden;
                 transition: .3s;
                 background-color: $bg0-secondary;
-
                 &:hover {
                     box-shadow: 0 5px 15px 10px rgba(190, 190, 190, 0.4);
                 }
