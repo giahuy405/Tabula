@@ -90,9 +90,9 @@ body {
 .shrink {
   margin-left: 350px;
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 380px) {
   .shrink {
-    margin-left: 330px;
+    margin-left: 300px;
   }
 }
 
@@ -180,6 +180,7 @@ header .container nav .nav-links {
     overflow-y: auto;
     transition: 0.3s;
     overflow-x: hidden;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.2);
     /* Disable horizontal scroll */
   }
   header .container nav .nav-links::-webkit-scrollbar {

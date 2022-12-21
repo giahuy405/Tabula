@@ -20,8 +20,8 @@ body {
 .shrink {
     margin-left: 350px;
 
-    @media screen and (max-width:400px) {
-        margin-left: 330px;
+    @media screen and (max-width:380px) {
+        margin-left: 300px;
     }
 }
 
@@ -115,7 +115,7 @@ header {
                     overflow-y: auto;
                     transition: .3s;
                     overflow-x: hidden;
-
+                    box-shadow:  0 0 10px 10px rgba(0 0 0 /.2);
                     /* Disable horizontal scroll */
                     &::-webkit-scrollbar {
                         width: 0;
@@ -194,7 +194,6 @@ header {
                         visibility: hidden;
                         opacity: 0;
                         transition: .4s;
-
                         @media screen and (max-width:992px) {
                             position: static;
                             visibility: hidden;
