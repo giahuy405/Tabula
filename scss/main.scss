@@ -1,0 +1,68 @@
+ // @use './colors' as *;
+// @use './type_scale' as *;
+// @use './media-query' as *;
+// :root{ 
+//     @each $color, $shades in $colors {
+//         @each $shade ,$value in $shades{
+//             --#{$color}-#{$shade}:#{$value};
+//         }
+//     }
+   
+//     @each $screen-size, $font-size in $type-scale{
+//         // Kích cỡ font chữ ở file type-scale
+//         @if $screen-size == small{
+//             @each $size, $value in $font-size{
+//                 --fs-#{$size}:#{$value};
+//             }
+//         } 
+//         // Các kích thước màn hình sẽ có những thiết lập khác nhau 
+//         @else{
+//             @include mq(large){
+//                 @each $size, $value in $font-size{
+//                     --fs-#{$size}:#{$value};
+//                 }
+//             }
+//         }
+//     }
+// }
+
+//  Tạo class như bootstrap
+// @each $color, $shades in $colors{
+//     @each $shade, $value in $shades{
+//         .text-#{$color}-#{$shade} {
+//             color: $value;
+//         }
+//         .bg-#{$color}-#{$shade} {
+//             color: $value;
+//         }
+//     }
+// }
+
+// Helper
+@import "./Helpers/variable";
+@import "./Helpers/mixin";
+
+// Vendors
+
+// Base
+@import "./Base/reset";
+// @import "./Base/customize";
+
+// Components
+// @import "./Components/button-theme";
+// @import "./Components/button";
+// @import "./Components/card";
+
+// Layouts 
+// @import "./Layouts/header";
+// @import "./Layouts/carousel";
+// @import "./Layouts/product";
+// @import "./Layouts/footer";
+
+// Pages
+@import './Pages/index'
+// Theme
+
+
+
+ 

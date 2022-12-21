@@ -1,0 +1,837 @@
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.none {
+    display: none !important;
+}
+
+.main {
+    transition: .3s;
+    overflow: hidden;
+}
+
+body {
+    transition: .3s;
+}
+
+.shrink {
+    margin-left: 350px;
+
+    @media screen and (max-width:400px) {
+        margin-left: 330px;
+    }
+}
+
+.mobile-item {
+    display: none;
+}
+
+#checkboxMega,
+#checkboxMegaShop,
+#checkboxDropAbout,
+#checkboxBlog,
+#checkboxCourses,
+#checkboxMegaElements {
+    display: none;
+}
+
+label {
+    display: block;
+    width: 100%;
+}
+
+
+
+header {
+    height: 65px;
+    line-height: 65px;
+    font-size: 14px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: block;
+    transition: 0.3s;
+
+    z-index: 9999;
+
+    @media screen and (max-width:992px) {
+        background-color: white;
+        height: 50px;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+
+        .logo {
+            display: flex;
+            width: 80px;
+            justify-content: space-between;
+
+            #switchButton {
+                position: relative;
+                cursor: pointer;
+                display: none;
+
+                @media screen and (max-width:992px) {
+                    display: block;
+                }
+
+                .btn {
+                    font-size: 28px;
+                    position: absolute;
+                    top: 10px;
+                }
+            }
+
+            img {
+
+                @media screen and (max-width:992px) {
+                    width: 48px;
+                    height: 48px;
+                }
+            }
+        }
+
+        nav {
+            .nav-links {
+                display: inline-flex;
+
+                @media screen and (max-width:992px) {
+                    position: fixed;
+                    top: 0;
+                    left: -100%;
+                    height: 100vh;
+                    width: 100%;
+                    max-width: 330px;
+                    display: block;
+                    background-color: white;
+                    padding: 10px 0;
+                    line-height: 55px;
+                    text-align: center;
+                    overflow-y: auto;
+                    transition: .3s;
+                    overflow-x: hidden;
+
+                    /* Disable horizontal scroll */
+                    &::-webkit-scrollbar {
+                        width: 0;
+                    }
+
+                    &.showNavbar {
+                        left: 0;
+                    }
+
+                    .logo-nav-mobile {
+                        display: block;
+                    }
+                }
+
+                @media screen and (max-width:380px) {
+                    max-width: 300px;
+                }
+
+                .logo-nav-mobile {
+                    display: none;
+
+                    @media screen and (max-width:992px) {
+                        display: inline-block;
+                        height: 80px;
+                        width: 80px;
+                    }
+                }
+
+                li {
+                    padding-left: $p-6;
+                    position: relative;
+
+                    @media screen and (max-width:992px) {
+                        padding: 0;
+
+                        &::before {
+                            display: none;
+                        }
+
+                        &.active {
+                            label {
+                                font-weight: $fw-bold;
+                            }
+                        }
+
+                        .mobile-item {
+                            display: inline-block;
+                        }
+
+                        #checkboxMega:checked~.mega-box,
+                        #checkboxMegaElements:checked~.mega-box,
+                        #checkboxMegaShop:checked~.mega-box,
+                        #checkboxDropAbout:checked~.drop-menu,
+                        #checkboxCourses:checked~.drop-menu,
+                        #checkboxBlog:checked~.drop-menu {
+                            height: 100%;
+                            visibility: visible;
+                            opacity: 1;
+                        }
+
+                        a {
+                            &.desktop-item {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    .drop-menu {
+                        background-color: white;
+                        position: absolute;
+                        top: 75px;
+                        width: 200px;
+                        box-shadow: 0 0 10px 10px rgba(0 0 0 /.1);
+                        line-height: 40px;
+                        padding: 0 12px;
+                        visibility: hidden;
+                        opacity: 0;
+                        transition: .4s;
+
+                        @media screen and (max-width:992px) {
+                            position: static;
+                            visibility: hidden;
+                            opacity: 0;
+                            width: 94%;
+                            height: 0;
+                            overflow: hidden;
+                            background-color: whitesmoke;
+                        }
+
+                        li {
+                            position: relative;
+                            border-bottom: 1px solid gainsboro;
+
+                            &.active::after {
+                                content: '';
+                                background-color: $c0-primary;
+                                width: 8px;
+                                height: 8px;
+                                position: absolute;
+                                top: 45%;
+                                left: 80%;
+                                border-radius: 50%;
+                                transition: .4s;
+                                visibility: visible;
+                                z-index: 999;
+
+                                @media screen and (max-width:992px) {
+                                    display: none;
+                                }
+                            }
+
+                            .drop-menu {
+                                top: 10px;
+                                left: 214px;
+                                visibility: hidden;
+                                opacity: 0;
+
+                            }
+
+                            &:hover .drop-menu {
+                                top: 0px;
+                                opacity: 1;
+                                visibility: visible;
+                            }
+                        }
+
+                        li::before {
+                            display: none;
+                        }
+                    }
+
+                    .mega-box {
+                        position: absolute;
+                        top: 75px;
+                        left: -300px;
+                        width: 700px;
+                        z-index: 9;
+                        background-color: $bg0-secondary;
+                        box-shadow: 0 0 10px 10px rgba(0 0 0 /.2);
+                        visibility: hidden;
+                        opacity: 0;
+                        transition: .3s;
+
+                        @media screen and (max-width:992px) {
+                            position: static;
+                            background-color: whitesmoke;
+                            width: 100%;
+                            height: 0;
+                            visibility: hidden;
+                            opacity: 0;
+                            transition: height opacity 1s;
+                            overflow: hidden;
+                        }
+
+                        .mega-content {
+                            display: flex;
+                            justify-content: space-between;
+                            padding: 6px 12px;
+
+                            @media screen and (max-width:992px) {
+                                flex-direction: column;
+                            }
+
+                            .mega-row {
+                                width: calc(33.333% - 30px);
+                                line-height: 35px;
+
+                                @media screen and (max-width:992px) {
+                                    width: 100%;
+                                    margin-bottom: 20px;
+                                }
+
+                                .mega-links {
+                                    li {
+                                        border-bottom: 1px solid gainsboro;
+                                        padding: 2px 0;
+
+                                        &:first-child {
+                                            border-bottom: 2px solid $bd-c0-primary;
+                                        }
+
+                                        &:last-child {
+                                            border: none;
+                                        }
+
+                                        &::before {
+                                            display: none;
+                                        }
+
+                                        a {}
+                                    }
+                                }
+
+                                img {}
+                            }
+                        }
+
+                    }
+
+                    &:hover .mega-box,
+                    &:hover .drop-menu {
+                        visibility: visible;
+                        opacity: 1;
+                        top: 65px;
+                    }
+
+                    &::before {
+                        content: '';
+                        background-color: $c0-primary;
+                        width: 0px;
+                        height: 0px;
+                        position: absolute;
+                        top: 55px;
+                        left: 45px;
+                        border-radius: 50%;
+                        transition: .4s;
+                        visibility: hidden;
+                        z-index: 10;
+                    }
+
+                    &.active::before {
+                        width: 6px;
+                        height: 6px;
+                        visibility: visible;
+                    }
+
+                    &:hover::before,
+                    &.active:hover::before {
+                        width: 14px;
+                        height: 14px;
+                        visibility: visible;
+                    }
+
+                    .mega-box-text-right {
+                        text-align: right;
+
+                        @media screen and (max-width:992px) {
+                            text-align: center;
+                            margin-bottom: 30px;
+                        }
+                    }
+
+                    &:nth-child(8)::before,
+                    &:nth-child(9)::before {
+                        display: none;
+                    }
+
+                    &:nth-child(9) {
+                        display: flex;
+                        justify-content: space-around;
+                        max-width: 100px;
+                        margin: 0 auto;
+
+                    }
+
+                    a {
+                        color: $c0-dark;
+                        transition: .3s;
+
+                        &:hover {
+                            color: $c0-primary;
+                        }
+
+                        @media screen and (max-width:992px) {
+                            display: block;
+                        }
+                    }
+
+                    button {
+                        // $bg, $pd, $bd, $fz, $fw, $color, $bg-hover, $c-hover
+                        @include button($bg0-primary,
+                            $p-3 $p-5,
+                            1px solid $bd-c0-primary,
+                            $text-sm,
+                            $fw-regular,
+                            $c0-secondary,
+                            $bg0-secondary,
+                            $c0-dark,
+                            $bd-radius1);
+                    }
+
+                    i {
+                        padding: 0 5px;
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+// set chiều cho carousel và dùng relat
+// banner-1 dùng abso left,right:0 để full màn hình theo trục ox
+// banner-2 tương tự
+// container dùng relative 
+.carousel {
+    height: 800px;
+    width: 100%;
+    background-position: left;
+    background-size: cover;
+    transition: .3s;
+    position: relative;
+
+    .banner-1 {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+
+    }
+
+    .banner-2 {
+        position: absolute;
+        bottom: -2px;
+        right: 0;
+        left: 0;
+    }
+
+    .container {
+        position: relative;
+        max-height: 500px;
+        padding-top: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media screen and (max-width:992px) {
+            flex-direction: column;
+        }
+
+        .carousel-content {
+
+            p {
+                @include text($text-xl, $fw-semibold, $c0-primary);
+            }
+
+            h2 {
+                max-width: 600px;
+                @include text($text-6xl, $fw-semibold, $c0-dark);
+
+                @media screen and (max-width:992px) {
+                    @include text($text-5xl, $fw-semibold, $c0-dark);
+                }
+            }
+        }
+
+        .carousel-pic {
+            img {}
+        }
+    }
+}
+
+// ở our-teacher dùng position relative, nhớ set chiều cao
+// ở banner-3 dùng absolute -> right,left:0 để full chiều ngang, bottom để ảnh nằm ở dưới
+// ở container dùng relative để dùng z index
+// Dùng z-index để thiết lập vị trí từng lớp 
+.our-teacher {
+    padding: 30px 0;
+    text-align: center;
+    background-color: $bg1-primary;
+    height: 680px;
+    margin-bottom: 150px;
+    position: relative;
+
+    @media screen and (max-width:992px) {
+        height: 1950px;
+    }
+
+    @media screen and (max-width:740px) {
+        height: 1600px;
+    }
+
+    @media screen and (max-width:567px) {
+        height: 4400px;
+    }
+
+    @media screen and (max-width:510px) {
+        height: 4100px;
+    }
+
+    @media screen and (max-width:400px) {
+        height: 3700px;
+    }
+
+    @media screen and (max-width:350px) {
+        height: 3400px;
+    }
+
+    .banner-3 {
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: -3px;
+    }
+
+    .container {
+        position: relative;
+        z-index: 10;
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 35px 40px;
+
+            @media screen and (max-width:992px) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media screen and (max-width:567px) {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+
+                border-radius: 10px;
+                overflow: hidden;
+                transition: .3s;
+                background-color: $bg0-secondary;
+
+                &:hover {
+                    box-shadow: 0 5px 15px 10px rgba(190, 190, 190, 0.4);
+                }
+
+                .card-img {
+                    overflow: hidden;
+
+                    img {
+                        border-radius: $bd-radius2 $bd-radius2 0 0;
+
+                        transform: scale(1.01);
+                        display: block;
+                        transition: transform .4s;
+                    }
+
+                    &:hover img {
+                        transform: scale(1.05);
+                    }
+                }
+
+                .card-desc {
+
+                    padding: $p-7 $p-6 ;
+                    border-radius: 0 0 $bd-radius2 $bd-radius2;
+
+                    span {
+                        @include text($text-sm1, $fw-regular , $c0-primary)
+                    }
+
+                    h3 {
+                        @include text($text-2xl, $fw-bold, $c0-dark);
+                        margin: $m-2;
+                    }
+
+                    p {
+                        @include text($text-sm, $fw-regular, $c0-dark);
+                        line-height: 1.5;
+                    }
+                }
+            }
+        }
+
+        .cards:nth-child(1) {
+            margin-bottom: $m-6;
+        }
+
+        .cards:nth-child(2) {
+            position: absolute;
+            max-width: 1180px;
+            padding-right: 15px;
+
+        }
+    }
+}
+
+
+
+.find-course {
+    position: relative;
+    padding-bottom: 30px;
+
+    .find-course-content {
+        position: relative;
+
+
+        z-index: 5;
+        max-width: 900px;
+        display: flex;
+        padding: 0 15px;
+        margin: 0 auto;
+
+        @media screen and (max-width:992px) {
+            flex-direction: column;
+        }
+
+        .form-pic {
+            max-width: 50%;
+
+            @media screen and (max-width:992px) {
+                max-width: 100%;
+            }
+
+            img {}
+        }
+
+        .form {
+            max-width: 45%;
+            background-color: white;
+            box-shadow: 0 0 15px 10px rgba(0 0 0 /.1);
+            padding: $p-5 ;
+            border-radius: $bd-radius2;
+            margin-left: auto;
+
+            @media screen and (max-width:992px) {
+                max-width: 100%;
+                margin-top: $m-7;
+                margin-left: initial;
+            }
+
+            h2 {
+                @include text($text-3xl, $fw-semibold, $c0-dark);
+                margin-bottom: $m-7;
+            }
+
+            .form-group {
+                display: flex;
+                margin: 0 -5px;
+
+                &:nth-of-type(1) {
+                    @media screen and (max-width:762px) {
+                        flex-direction: column;
+                    }
+                }
+
+                .form-input {
+                    width: 100%;
+                    position: relative;
+                    padding: 0 5px;
+                    margin-bottom: $p-5;
+
+                    input {
+                        @include form-control();
+                        padding: $p-2 $p-7;
+                    }
+
+                    select {
+                        color: grey;
+                        @include form-control();
+                    }
+
+                    textarea {
+                        @include form-control();
+                        resize: none;
+                    }
+
+                    i {
+                        color: $c0-primary;
+                        position: absolute;
+                        top: 10px;
+                        left: 15px;
+                    }
+                }
+
+                button {
+                    @include button($bg0-primary,
+                        $p-3 $p-5,
+                        1px solid $bd-c0-primary,
+                        $text-sm,
+                        $fw-semibold,
+                        $c0-secondary,
+                        $bg0-secondary,
+                        $c0-dark,
+                        $bd-radius1);
+                    width: 38%;
+                    letter-spacing: 2px;
+                }
+            }
+        }
+    }
+
+    .banner-4 {
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        z-index: 1;
+       
+    }
+}
+
+footer {
+    padding-top: 100px;
+    padding-bottom: 180px;
+    background-color: $bg0-footer;
+    background-image: url(https://tabula.bold-themes.com/wavy/wp-content/uploads/sites/3/2019/03/footer_background.jpg);
+    background-position: center;
+    background-size: cover;
+    color: $c0-secondary;
+
+    .footer__items {
+        display: flex;
+        justify-content: space-between;
+
+        @media screen and (max-width:992px) {
+            flex-wrap: wrap;
+        }
+
+        .footer-item {
+            width: 25%;
+
+            @media screen and (max-width:992px) {
+                margin-bottom: 30px;
+                padding: 0 30px;
+                width: 50%;
+                 
+            }
+
+            @media screen and (max-width:576px) {
+                margin-bottom: 30px;
+                padding: 0 20px;
+                 width: 100%;
+                 
+            }
+
+            h3 {
+                @include text($text-3xl, $fw-semibold, $c0-secondary);
+                margin-bottom: $text-4xl;
+            }
+
+            ul {
+                li {
+                    font-size: $text-sm1;
+                    padding: 12px 0;
+
+                    a {
+
+                        color: $c0-secondary;
+                        transition: .3s;
+
+                        &:hover {
+                            color: $c0-primary;
+
+                        }
+                    }
+                }
+            }
+
+            button {
+                width: 100%;
+                @include button($bg0-secondary,
+                    $p-3 $p-5,
+                    1px solid $bd-c0-primary,
+                    $text-sm1,
+                    $fw-semibold,
+                    $c0-dark,
+                    $bg0-primary,
+                    $c0-secondary,
+                    $bd-radius1);
+                border: 1px solid rgba(220, 220, 220, 0.2);
+
+                &:hover {
+                    border-color: $c0-secondary ;
+                }
+            }
+
+            input {
+                text-align: center;
+                @include form-control();
+                background-color: $bg0-primary;
+                border: 1px solid rgba(220, 220, 220, 0.212);
+
+                padding: $p-3 $p-5;
+                border-radius: $bd-radius1;
+                margin-bottom: $m-1;
+                transition: .4s;
+
+                &::placeholder {
+                    color: gainsboro;
+                }
+
+                &:focus {
+                    color: white;
+                    border-color: white;
+                }
+            }
+
+        }
+    }
+}
+
+.backtotop {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    box-shadow: inset 0 0 0 2em $c0-primary;
+    color: $c0-secondary;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 50px;
+    z-index: 9999;
+    visibility: hidden;
+    opacity: 0;
+    transition: .4s;
+}
+
+.backtotop.active {
+    visibility: visible;
+    opacity: 1;
+
+}
+
+.backtotop:hover {
+    box-shadow: none;
+    color: $c0-primary;
+    border: 1px solid $c0-primary;
+    background-color: $bg0-secondary;
+}

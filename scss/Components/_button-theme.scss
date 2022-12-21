@@ -1,0 +1,50 @@
+.theme-switch-wrapper {
+    position: absolute;
+    bottom:30px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+}
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+.theme-switch input {
+    display: none;
+}
+/* phần ruột */
+.slider {
+    background-color: #2a73dd;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+    border-radius: 34px;
+}
+/* cái nút tròn tròn */
+.slider:before {
+    content: "";
+    background-color: white;
+    bottom: 4px;
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+    /* radius cái nút tròn tròn   */
+    border-radius: 50%; 
+}
+/* phần background sau khi checked */
+input:checked+.slider {
+    background-color: #2a73dd;
+}
+/* sau khi checked thì nút tròn tròn trượt qua bên phải */
+input:checked+.slider:before {
+    transform: translateX(26px);
+}
