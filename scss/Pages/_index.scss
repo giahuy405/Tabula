@@ -392,7 +392,7 @@ header {
                             $fw-regular,
                             $c0-secondary,
                             $bg0-secondary,
-                            $c0-dark,
+                            $c0-primary,
                             $bd-radius1);
                     }
 
@@ -411,7 +411,8 @@ header {
 // banner-2 tương tự
 // container dùng relative 
 .carousel {
-    height: 800px;
+    padding-top: 50px;
+    height: 680px;
     width: 100%;
     background-position: left;
     background-size: cover;

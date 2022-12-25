@@ -427,7 +427,7 @@ header .container nav .nav-links li button {
 }
 header .container nav .nav-links li button:hover {
   background-color: white;
-  color: black;
+  color: #b61984;
   box-shadow: none;
 }
 header .container nav .nav-links li button:focus {
@@ -438,7 +438,8 @@ header .container nav .nav-links li i {
 }
 
 .carousel {
-  height: 800px;
+  padding-top: 50px;
+  height: 680px;
   width: 100%;
   background-position: left;
   background-size: cover;
