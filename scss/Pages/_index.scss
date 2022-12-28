@@ -15,13 +15,61 @@
 
 body {
     transition: .3s;
+
+}
+
+body.navbarChange {
+    // xóa các layout bị tràn ra ngoài thẻ body
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .shrink {
-    margin-left: 350px;
+    transition: .4s;
+    transform: translateX(340px);
+}
 
-    @media screen and (max-width:380px) {
-        margin-left: 300px;
+.animationHeader {
+    animation: animateHeader 1s;
+}
+
+.animationHeader2 {
+    animation: animateHeader2 1s;
+}
+
+@keyframes animateHeader {
+    0% {
+        transform: translateY(10px);
+    }
+
+    35% {
+        transform: translateY(-42px);
+    }
+
+    60% {
+        transform: translateY(-42px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes animateHeader2 {
+    0% {
+        transform: translateY(10px);
+    }
+
+    35% {
+        transform: translateY(-73px);
+    }
+
+    60% {
+        transform: translateY(-73px);
+    }
+
+    100% {
+        transform: translateY(0);
     }
 }
 
@@ -71,6 +119,18 @@ header {
             width: 80px;
             justify-content: space-between;
 
+            &.active {
+                position: fixed;
+                top: 0px;
+                left: 380px;
+
+                @media screen and (max-width:400px) {
+                    left: 350px;
+                }
+
+
+            }
+
             #switchButton {
                 position: relative;
                 cursor: pointer;
@@ -106,7 +166,7 @@ header {
                     left: -100%;
                     height: 100vh;
                     width: 100%;
-                    max-width: 350px;
+                    max-width: 340px;
                     display: block;
                     background-color: white;
                     padding: 10px 0;
@@ -115,7 +175,8 @@ header {
                     overflow-y: auto;
                     transition: .3s;
                     overflow-x: hidden;
-                    box-shadow:  0 0 10px 10px rgba(0 0 0 /.2);
+                    box-shadow: 0 0 10px 10px #00000033;
+
                     /* Disable horizontal scroll */
                     &::-webkit-scrollbar {
                         width: 0;
@@ -131,7 +192,7 @@ header {
                 }
 
                 @media screen and (max-width:380px) {
-                    max-width: 300px;
+                    max-width: 340px;
                 }
 
                 .logo-nav-mobile {
@@ -186,19 +247,20 @@ header {
                     .drop-menu {
                         background-color: white;
                         position: absolute;
-                        top: 75px;
+                        top: 65px;
                         width: 200px;
-                        box-shadow: 0 0 10px 10px rgba(0 0 0 /.1);
+                        box-shadow: 0 0 10px 10px #0000001a;
                         line-height: 40px;
                         padding: 0 12px;
                         visibility: hidden;
                         opacity: 0;
                         transition: .4s;
+
                         @media screen and (max-width:992px) {
                             position: static;
                             visibility: hidden;
                             opacity: 0;
-                            width: 94%;
+                            width: 100%;
                             height: 0;
                             overflow: hidden;
                             background-color: whitesmoke;
@@ -228,8 +290,9 @@ header {
 
                             .drop-menu {
                                 top: 10px;
-                                left: 214px;
+                                left: 196px;
                                 visibility: hidden;
+
                                 opacity: 0;
 
                             }
@@ -248,12 +311,12 @@ header {
 
                     .mega-box {
                         position: absolute;
-                        top: 75px;
+                        top: 65px;
                         left: -300px;
                         width: 700px;
                         z-index: 9;
                         background-color: $bg0-secondary;
-                        box-shadow: 0 0 10px 10px rgba(0 0 0 /.2);
+                        box-shadow: 0 0 10px 10px #00000033;
                         visibility: hidden;
                         opacity: 0;
                         transition: .3s;
@@ -318,7 +381,7 @@ header {
                     &:hover .drop-menu {
                         visibility: visible;
                         opacity: 1;
-                        top: 65px;
+                        top: 77px;
                     }
 
                     &::before {
@@ -327,7 +390,7 @@ header {
                         width: 0px;
                         height: 0px;
                         position: absolute;
-                        top: 55px;
+                        top: var(--afterDotTop, 70px);
                         left: 45px;
                         border-radius: 50%;
                         transition: .4s;
@@ -336,8 +399,8 @@ header {
                     }
 
                     &.active::before {
-                        width: 6px;
-                        height: 6px;
+                        width: var(--afterDotWidth, 6px);
+                        height: var(--afterDotHeiht, 6px);
                         visibility: visible;
                     }
 
@@ -418,6 +481,14 @@ header {
     background-size: cover;
     transition: .3s;
     position: relative;
+
+    @media screen and (max-width:992px) {
+        height: 900px;
+    }
+
+    @media screen and (max-width:576px) {
+        height: 800px;
+    }
 
     .banner-1 {
         position: absolute;
@@ -519,17 +590,21 @@ header {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 35px 40px;
+
             @media screen and (max-width:992px) {
                 grid-template-columns: repeat(2, 1fr);
             }
+
             @media screen and (max-width:567px) {
                 grid-template-columns: 1fr;
             }
+
             .card {
                 border-radius: 10px;
                 overflow: hidden;
                 transition: .3s;
                 background-color: $bg0-secondary;
+
                 &:hover {
                     box-shadow: 0 5px 15px 10px rgba(190, 190, 190, 0.4);
                 }
@@ -552,11 +627,11 @@ header {
 
                 .card-desc {
 
-                    padding: $p-7 $p-6 ;
+                    padding: $p-7 $p-6;
                     border-radius: 0 0 $bd-radius2 $bd-radius2;
 
                     span {
-                        @include text($text-sm1, $fw-regular , $c0-primary)
+                        @include text($text-sm1, $fw-regular, $c0-primary)
                     }
 
                     h3 {
@@ -618,8 +693,8 @@ header {
         .form {
             max-width: 45%;
             background-color: white;
-            box-shadow: 0 0 15px 10px rgba(0 0 0 /.1);
-            padding: $p-5 ;
+            box-shadow: 0 0 15px 10px #0000001a;
+            padding: $p-5;
             border-radius: $bd-radius2;
             margin-left: auto;
 
@@ -696,7 +771,7 @@ header {
         left: 0;
         right: 0;
         z-index: 1;
-       
+
     }
 }
 
@@ -724,14 +799,14 @@ footer {
                 margin-bottom: 30px;
                 padding: 0 30px;
                 width: 50%;
-                 
+
             }
 
             @media screen and (max-width:576px) {
                 margin-bottom: 30px;
                 padding: 0 20px;
-                 width: 100%;
-                 
+                width: 100%;
+
             }
 
             h3 {
@@ -771,7 +846,7 @@ footer {
                 border: 1px solid rgba(220, 220, 220, 0.2);
 
                 &:hover {
-                    border-color: $c0-secondary ;
+                    border-color: $c0-secondary;
                 }
             }
 
