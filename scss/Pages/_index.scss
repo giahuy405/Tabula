@@ -15,7 +15,11 @@
 
 body {
     transition: .3s;
-
+    @media screen and (max-width:992px){
+        overflow-x: hidden;
+    }
+    
+    
 }
 
 body.navbarChange {
