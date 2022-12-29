@@ -86,10 +86,10 @@ a {
 body {
   transition: 0.3s;
 }
-
-body.navbarChange {
-  overflow-x: hidden;
-  overflow-y: hidden;
+@media screen and (max-width: 992px) {
+  body {
+    overflow-x: hidden;
+  }
 }
 
 .shrink {

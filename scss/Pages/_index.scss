@@ -15,6 +15,7 @@
 
 body {
     transition: .3s;
+    
     @media screen and (max-width:992px){
         overflow-x: hidden;
     }
@@ -24,13 +25,14 @@ body {
 
 body.navbarChange {
     // xóa các layout bị tràn ra ngoài thẻ body
-    overflow-x: hidden;
-    overflow-y: hidden;
+
+  
 }
 
 .shrink {
     transition: .4s;
     transform: translateX(340px);
+    // margin-left: 340px;
 }
 
 .animationHeader {
